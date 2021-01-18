@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "ShadowBrowser",
+    "version": "1.0.0",
+    "description": "Lets you see the the unseeable and read the unreadble. ",
+
+    "content_scripts": [
+        {
+            "matches": [ "<all_urls>" ],
+            "js": [ "/js/all.js" ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [ "*://*.youtube.com/*" ],
+            "js": [ "/js/youtube.js" ],
+            "run_at": "document_end"
+        }
+    ],
+
+    "icons": {"128": "/img/icon/128_ico.png"},
+
+    "browser_action": {
+        "default_icon": "/img/icon/ico.png",
+        "default_popup": "/html/popup.html",
+        "default_title": "ShadowBrowser"
+    },
+    "options_ui": {
+        "open_in_tab": true,
+        "page": "html/options.html"
+    },
+    "permissions": [
+        "storage",
+        "http://localhost:3000/"
+    ]
+}

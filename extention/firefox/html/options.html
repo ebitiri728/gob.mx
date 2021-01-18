@@ -1,0 +1,247 @@
+<html>
+    <head>
+        <title>Shadow Options</title>
+        <link rel="icon" type="image/png" href="/img/icon/ico.png"/>
+    </head>
+    <style>
+        * {
+            overflow-x: hidden;
+            font-family: fantasy;
+            color: rgb(221, 221, 221);
+        }
+        input {
+            width: 300px;
+        }
+        option, optgroup {
+            color: black;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 10, 32);
+        }
+        section {
+            position: relative;
+            width: 88%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        section p {
+            font-size: 18px;
+            margin: 45px 0;
+        }
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        hr {
+            color:  rgb(32, 50, 112);
+        }
+        ul li button {
+            width: 100%;
+            text-align: left;
+            padding: 20px 20px;
+            padding-right: 10px;
+            border-radius: 6px 0 0 6px;
+            border: 0;
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 16px;
+        }
+        article {
+            background-color: rgba(17, 33, 85, 0.651);
+            min-width: 98%;
+            min-height: 380px;
+            margin: 20px 0;
+            padding: 0;
+            border-radius: 7px;
+        }
+        .check {
+            width: 20px;
+        }
+        .sml {
+            font-size: 15px;
+            margin: 10px;
+        }
+        #back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        #t {
+            width: 28%;
+            color: rgb(202, 202, 202);
+            font-weight: bold;
+        }
+        #w {
+            width: 70%;
+            text-align: center;
+        }
+        .keys {
+            position: relative;
+            width: 96%;
+            margin: 7% 2%;
+            border-radius: 4px;
+            background-color: rgba(20, 38, 97, 0.493);
+        }
+        .keyi {
+            border: 0;
+            color: black;
+        }
+        .keys p {
+            margin: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .enter {
+            background-color: rgba(39, 52, 95, 0.37);
+            color: white;
+            border: 0;
+            margin: 20px;
+            padding: 10px;
+            width: 740px;
+            height: 270px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        #encr {
+            resize: none;
+        }
+        #arrop {
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        #keynamen {
+            height: 25px;
+            margin: 5px;
+            padding: 0;
+        }
+        .gb {
+            width: 70px;
+            height: 25px;
+            border: 0;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(44, 209, 22);
+        }
+        #switch {
+            color: black;
+            background-color: rgb(230, 215, 17);
+        }
+        #dec {
+            background-color: rgb(17, 103, 231);
+        }
+        #generate {
+            color: black;
+            background-color: rgb(230, 215, 17);
+        }
+        #den {
+            background-color: red;
+        }
+        #logot {
+            background-color: red;
+            margin: 20px;
+        }
+        #ot {
+            height: 30px;
+            margin: 0;
+        }
+        #err {
+            margin: 10px 0;
+        }
+    </style>
+    <body>
+        <noscript>Your browser does not support JavaScript!</noscript>
+        <img id="back" src="/img/icon/128_ico.png" width="161" />
+        <section>
+            <div id="t">
+                <h1>ShadowBrowser</h1>
+                <p>Settings</p>
+                <ul>
+                    <li><button id="gen">General</button></li>
+                    <li><button id="key">Keys</button></li>
+                    <li><button id="help">Help</button></li>
+                    <li><button id="info">Info</button></li>
+                </ul>
+            </div>
+            <div id="w">
+                <article>
+                    <div id="pgen">
+                        <h2>General Settings</h2>
+                        <div>
+                            <input type="checkbox" id="autos" class="check"><label>auto seach for keys</label>
+
+                            <hr style="margin: 30px 0;">
+
+                            <h3>Enctyption</h3>
+                            <p id="err0"></p>
+                            <br>
+                            <label id="keyn" style="padding: 20px 0;">
+                                Key Name: <br>
+                                <select id="keynamen" class="enter">
+                                </select>
+                            </label>
+                            <br>
+                            <label>Textarea input:</label>
+                            <br>
+                            <textarea name="text2encr" id="encr" cols="80" class="enter"></textarea>
+                            <br>
+                            <button id="dec" class="gb">Decrypt</button> <button id="enc" class="gb">Encrypt</button> <button id="switch" class="gb">Switch</button>
+                            <br>
+                            <label>Output:</label>
+                            <br>
+                            <div id="arrop" class="enter"></div>
+                        </div>
+                    </div>
+                    <div id="pkey">
+                        <h2>Your keys</h2>
+                        <h3>Generate</h3>
+                        <label>KeyName:</label> <input type="text" id="namen" class="keyi" placeholder="optional"> <button id="generate" class="gb">Generate</button>
+                        <br>
+                        <br>
+                        <div id="keygens" style="display: none;"><p id="genkey" class="sml">aaaaaa</p> <button id="add" class="gb">Add</button> <button id="den" class="gb">Denied</button></div>
+
+                        <hr style="margin: 30px 0;">
+                        <h3>Keys found</h3>
+                        <p id="num"></p>
+                        <div id="keysfound" class="keys">
+                        </div>
+                        <hr style="margin: 30px 0;">
+                        <p id="err"></p>
+                        <h3>Key codes</h3>
+                        <label>
+                            Add key: <input type="text" id="keyi" class="keyi"> <button id="submit" class="gb">Submit</button>
+                        </label>
+                        <h4 id='mk'>My keys</h4>
+                        <div id="keysm" class="keys">
+                        </div>
+                        <h4 id='ok'>Other keys</h4>
+                        <div id="keyso" class="keys"></div>
+                    </div>
+                    <div id="phelp">
+                        <h2>Helping hand</h2>
+                        <p>help text here</p>
+                    </div>
+                    <div id="pinfo">
+                        <h2>Info</h2>
+                        <h3>Register/Reset</h3>
+                        <label>Your email: <input type="text" id="uemail" class="keyi"> <button id="reg" class="gb">Register</button></label>
+                        <hr style="margin: 30px 0;">
+                        <h3 id="logtitle">Login</h3>
+                        <label id ='loginput'>Enter: <input type="text" id="code" class="keyi"> <button id="si" class="gb">Sign in</button></label>
+                        
+                        <br style="margin: 30px;">
+                        <label id="emot"></label>
+                        <br>
+                        <button id="logot" class="gb">Logout</button>
+                        <p id="ot" style="margin: 20px;"></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <script src="../js/axios.min.js"></script>
+        <script src="options.js"></script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ShadowBrowser</title>
+    </head>
+    <style>
+        * {
+            overflow: hidden;
+            font-family: fantasy;
+            color: rgb(221, 221, 221);
+        }
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color:  rgb(3, 17, 48);
+            width: 360px;
+            text-align: center;
+        }
+        p {
+            font-size: 15px;
+            text-align: left;
+            margin: 5px;
+        }
+        input {
+            color: black;
+            border: 0;
+        }
+        .gb {
+            position: relative;
+            color: black;
+            border: 0;
+            border-radius: 3px;
+            margin: 6px;
+            width: 63px;
+            height: 25px;
+            background-color: rgb(44, 209, 22);
+        }
+        .gb:active {
+            background-color: rgb(33, 160, 17);
+        }
+        #bgimg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -2;
+        }
+        #input {
+            border: 0;
+            color: black;
+            margin: 20px 0;
+        }
+        #output {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #set {
+            position: fixed;
+            top: 0;
+            right: 0;
+            border: 0;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        #set img {
+            width: 28px;
+        }
+        .ln div {
+            width: 320px;
+            margin-left: 23px;
+        }
+        .ln input {
+            width: 200px;
+        }
+        #scan {
+            background-color: rgb(13, 13, 219);
+            color: white;
+        }
+        .keys {
+            position: relative;
+            width: 96%;
+            margin: 6px 2%;
+            border-radius: 4px;
+            background-color: rgba(20, 38, 97, 0.493);
+        }
+        .keys p {
+            margin: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <body>
+        <h2>Shadow Browser</h2>
+        <button id="set"><img src="/img/coge.png" alt=""></button>
+        <br>
+        <label id="logsc">To unlock the plugin<button id="account" class="gb">Login</button></label>
+        <div id="lookup" class="keys">
+        </div>
+        <p id="output"></p>
+        <img id="bgimg" src="/img/icon/128_ico.png" >
+        <script src="../js/axios.min.js"></script>
+        <script src="popup.js" ></script>
+    </body>
+</html>
